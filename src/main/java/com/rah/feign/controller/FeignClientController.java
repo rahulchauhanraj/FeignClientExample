@@ -10,7 +10,7 @@ import javax.inject.Inject;
 @Controller
 public class FeignClientController {
 
-    @Inject FeignClientService feignClientService;
+    @Inject private FeignClientService feignClientService;
 
     @RequestMapping(value = "/healthCheck", method = RequestMethod.GET, produces = "application/json")
     public boolean isAlive() {
