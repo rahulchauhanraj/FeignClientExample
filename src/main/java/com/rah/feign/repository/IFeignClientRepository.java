@@ -1,14 +1,14 @@
 package com.rah.feign.repository;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import feign.Headers;
 import feign.RequestLine;
+import feign.Response;
 
 import java.io.IOException;
 
 public interface IFeignClientRepository {
 
-    @RequestLine("GET /get")
+    @RequestLine("GET /search?client=ms-opera-mobile")
     @Headers({"Content-Type: application/x-www-form-urlencoded", "Accept: */*"})
-    JsonNode healthCheck() throws IOException;
+    Response healthCheck() throws IOException;
 }

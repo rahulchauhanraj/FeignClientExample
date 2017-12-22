@@ -1,6 +1,7 @@
 package com.rah.feign.service;
 
 import com.rah.feign.repository.IFeignClientRepository;
+import feign.Response;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
@@ -13,11 +14,14 @@ public class FeignClientService {
 
     public boolean healthCheck() {
         try {
-            statusCheckRepository.healthCheck();
+            Response response = statusCheckRepository.healthCheck();
+            if (response.status() == 200) {
+                return true;
+            }
         } catch (IOException ex) {
             return false;
         }
-        return true;
+        return false;
     }
 
 }

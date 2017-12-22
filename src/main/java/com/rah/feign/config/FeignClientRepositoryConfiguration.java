@@ -14,7 +14,7 @@ import javax.inject.Inject;
 @Configuration
 public class FeignClientRepositoryConfiguration {
 
-    @Value("${feign_client_service_base_url:https//:abc.com}")
+    @Value("${feign_client_service_base_url:https://www.google.com}")
     private String serviceUrl;
 
     @Inject
